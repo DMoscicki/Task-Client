@@ -64,7 +64,7 @@ func WelcomingPage(_ fyne.Window) fyne.CanvasObject {
 			widget.NewHyperlink("documentation", parseURL("https://developer.fyne.io/")),
 			widget.NewLabel(" "),
 		),
-		widget.NewLabel(""), // balance the header on the tutorial screen we leave blank on this content
+		widget.NewLabel(""),
 	))
 	return contain
 }
