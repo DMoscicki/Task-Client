@@ -44,9 +44,6 @@ func main() {
 	w.ShowAndRun()
 }
 
-func unsupportedPage(t model.StartPage) bool {
-	return !t.SupportWeb && fyne.CurrentDevice().IsBrowser()
-}
 
 func MakeTree(setPage func(page model.StartPage), loadPrevious bool, w fyne.Window) fyne.CanvasObject {
 	ap := fyne.CurrentApp()
@@ -69,17 +66,9 @@ func MakeTree(setPage func(page model.StartPage), loadPrevious bool, w fyne.Wind
 				return
 			}
 			obj.(*widget.Label).SetText(t.Title)
-			if unsupportedPage(t) {
-				obj.(*widget.Label).TextStyle = fyne.TextStyle{Italic: true}
-			} else {
-				obj.(*widget.Label).TextStyle = fyne.TextStyle{}
-			}
 		},
 		OnSelected: func(uid string) {
 			if t, ok := model.StartPages[uid]; ok {
-				if unsupportedPage(t) {
-					return
-				}
 				ap.Preferences().SetString(preferenceCurrentPage, uid)
 				setPage(t)
 			}
