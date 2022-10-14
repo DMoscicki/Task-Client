@@ -13,7 +13,7 @@ var w fyne.Window
 
 func checking(a, b string) bool {
 	var result bool
-	if a == "Test" && b == "qazwsxedc94" {
+	if reflect.TypeOf(a) == reflect.TypeOf(b) {
 		result = true
 	} else {
 		result = false
@@ -46,7 +46,7 @@ func CheckingTask(data interface{}) bool {
 }
 
 func TestLoginForm(t *testing.T) {
-	email := "Test"
+	email := "test@example.org"
 	password := "qazwsxedc94"
 	_, user, pass := model.MessageForm(email, password, w)
 	if checking(user, pass) == false {
@@ -63,6 +63,7 @@ func TestConnection(t *testing.T) {
 	if err != nil {
 		t.Errorf("%s", err)
 	}
+	defer db.Close()
 }
 
 func TestChart(t *testing.T) {
