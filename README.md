@@ -1,5 +1,5 @@
 <p dir="auto">
-   <img alt="SVG Banners" src="https://svg-banners.vercel.app/api?type=typeWriter&text1=Дипломный%20проект&width=1010&height=100"
+   <img alt="SVG Banners" src="https://svg-banners.vercel.app/api?type=typeWriter&text1=Дипломный%20проект.&width=1010&height=100"
 </p>
 
 
